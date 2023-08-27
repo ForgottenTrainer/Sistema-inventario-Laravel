@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Form;
 
 use Livewire\Component;
+use Livewire\Attributes\On; 
 use App\Models\Areas as Area;
 
 class FormArea extends Component
@@ -12,6 +13,9 @@ class FormArea extends Component
     public $tproducto = '';
     public $telefono = '';
     public $correo = '';
+    public Area $area;
+
+    //#[On('good')] 
     
     protected $defer = [
         'nombre',
@@ -20,6 +24,12 @@ class FormArea extends Component
         'telefono',
         'correo'
     ];
+
+    public function mount()
+    {
+        $this->area = new Area();
+    }
+
 
     public function save()
     {
@@ -38,10 +48,13 @@ class FormArea extends Component
             'telefono' => $this->telefono,
             'correo' => $this->correo
         ]);
-    
-        session()->flash('mensaje', 'Área agregada correctamente');
-    
-        return redirect()->route('areas.show');
+
+        $this->nombre = '';
+        $this->direccion = '';
+        $this->tproducto = '';
+        $this->telefono = '';
+        $this->correo = '';
+
     }
     
 

@@ -1,12 +1,6 @@
 <div>
-
-    @if(session('mensaje'))
-    <div class="bg-green-500 text-white p-2 rounded-sm uppercase m-2">
-        {{ session('mensaje') }}
-    </div>
-    @endif
     
-    <form wire:submit="save">
+    <form wire:submit.prevent="save">
         <div class="relative z-0 w-full mb-6 group">
             @error('nombre')
                 <p class="bg-red-500 text-white p-2 rounded-sm uppercase m-2">
@@ -45,7 +39,24 @@
                 @enderror
             </div>
         </div>
-        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Agregar area</button>
+        <button type="submit" wire:click="$emit('good')" wire:loading.attr="disabled" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Agregar area</button>
     </form>
   
 </div>
+@push('js')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        
+        Livewire.on('good', () => {
+            console.log('Event "good" received.');
+            Swal.fire({    
+                icon: 'success',
+                title: 'Your work has been saved',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        })
+    
+
+    </script>
+@endpush

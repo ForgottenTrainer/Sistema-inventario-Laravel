@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->string('tproducto');
             $table->string('direccion');
-            $table->integer('telefono');
+            $table->double('telefono');
             $table->string('correo');
             $table->timestamps();
         });

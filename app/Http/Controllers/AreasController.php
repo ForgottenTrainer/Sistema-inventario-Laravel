@@ -44,4 +44,12 @@ class AreasController extends Controller
         return redirect()->route('area.edit', $id);
 
     }
+
+    public function delete($id)
+    {
+        $areas = Areas::find($id);
+        $areas->delete();
+
+        return view('admin.area.index');
+    }
 }

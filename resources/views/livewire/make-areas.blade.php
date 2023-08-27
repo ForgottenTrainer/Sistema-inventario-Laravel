@@ -51,7 +51,7 @@
                         </td>
                         <td class="px-6 py-4 flex">
                             <a href="{{ route('area.edit', $area->id) }}" class="showModal font-medium text-blue-600 dark:text-blue-500 hover:underline mr-5">Editar</a>
-                            <button type="button" class="font-medium text-red-600 dark:text-red-500 hover:underline">Eliminar</button>
+                            <button wire:click="$emit('deletePost', {{$area->id}})" type="button" class="font-medium text-red-600 dark:text-red-500 hover:underline cursor-pointer">Eliminar</button>
                         </td>
                     </tr>             
                 @empty
@@ -64,6 +64,31 @@
         </div>
     </div>
 </div>
+@push('js')
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        Livewire.on('deletePost', areaId => {
+            Swal.fire({
+                title: 'Estas a punto de eliminar el area',
+                text: "Esta acción es irreversivle",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Eliminar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.emitTo('make-areas', 'delete', areaId)
+                    Swal.fire(
+                    'Area eliminada',
+                    'Excelente, el area ya se elimino',
+                    'success'
+                    )
+                }
+            })
+        })
+    </script>
+@endpush
 
 
 

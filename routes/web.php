@@ -42,6 +42,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/agregar-area', [AreasController::class, 'show'])->name('areas.show');
     Route::get('/editar-area/{id}', [AreasController::class, 'edit'])->name('area.edit');
     Route::put('/editar-area/{id}', [AreasController::class, 'update'])->name('area.update');
+    //Route::delete('/delete-area/{id}', [AreasController::class, 'delete'])->name('area.delete');
 });
 
 require __DIR__.'/auth.php';

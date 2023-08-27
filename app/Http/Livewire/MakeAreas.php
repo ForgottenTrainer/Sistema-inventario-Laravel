@@ -16,14 +16,8 @@ class MakeAreas extends Component
     public $direccion= '';
     public $telefono = '';
     public $correo= '';
+    public $listeners = ['delete'];
 
-    public function openEditModal($areaId)
-    {
-        $area = Area::find($areaId);
-    
-        $this->dispatchBrowserEvent('open-edit-modal', $area);
-    }
-    
     public function updateArea($id)
     {
         $area = Area::find($id);
@@ -44,6 +38,13 @@ class MakeAreas extends Component
     {
         $this->areas = Area::orderBy('id', 'desc')->get();
         $this->area = new Area();
+    }
+
+    public function delete(Area $area)
+    {
+        $area->delete();
+        
+        $this->mount();
     }
 
     public function render()
