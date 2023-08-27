@@ -38,8 +38,11 @@ class TaskController extends Controller
     public function show($id)
     {
         $producto = Task::find($id);
-        return view('admin.producto.show', compact('producto'));
+        $areas = Areas::all();
+    
+        return view('admin.producto.show', compact('producto', 'areas'));
     }
+    
 
     public function update(Request $request, $id)
     {
