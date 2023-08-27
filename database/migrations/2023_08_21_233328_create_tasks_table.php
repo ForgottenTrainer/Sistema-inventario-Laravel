@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('nombre');
             $table->integer('cantidad');
             $table->string('area');
+            $table->string('proveedor');
             $table->boolean('estado')->default(0);
             $table->timestamps();
         });

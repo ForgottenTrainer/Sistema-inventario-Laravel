@@ -51,12 +51,10 @@
             console.log('Event "good" received.');
             Swal.fire({    
                 icon: 'success',
-                title: 'Your work has been saved',
+                title: 'El area a sido creada',
                 showConfirmButton: false,
                 timer: 1500
             })
         })
-    
-
     </script>
 @endpush

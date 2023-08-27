@@ -13,6 +13,7 @@ class Task extends Model
         'nombre',
         'cantidad',
         'area',
-        'estado'
+        'estado',
+        'proveedor'
     ];
 }

@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Task;
+use App\Models\Areas;
 
 class TaskController extends Controller
 {
     //
     public function index()
     {
-        return view('admin.producto.create');
+        $areas = Areas::all();
+        return view('admin.producto.create', compact('areas'));
     }
 
     public function store(Request $request)
@@ -24,6 +26,7 @@ class TaskController extends Controller
             'nombre' => $request->nombre,
             'cantidad' => $request->cantidad,
             'area' => $request->area,
+            'proveedor' => $request->proveedor,
             'estado' => 1
         ]);
 

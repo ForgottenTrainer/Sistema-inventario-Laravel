@@ -16,6 +16,9 @@
                         Area
                     </th>
                     <th scope="col" class="px-6 py-3">
+                        Proveedor
+                    </th>
+                    <th scope="col" class="px-6 py-3">
                         Acciones
                     </th>
                 </tr>
@@ -34,6 +37,9 @@
                         </td>
                         <td class="px-6 py-4">
                             {{ $producto->area }}
+                        </td>
+                        <td class="px-6 py-4">
+                            {{ $producto->proveedor }}
                         </td>
                         <td class="px-6 py-4 flex">
                             <a href="{{ route('producto.show', $producto->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-5">Editar</a>
