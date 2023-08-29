@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\TaskExport;
 use Illuminate\Http\Request;
 use App\Models\Task;
 use App\Models\Areas;
 use PDF;
+use Excel;
 use Illuminate\Support\Facades\App;
 
 class TaskController extends Controller
@@ -75,6 +77,11 @@ class TaskController extends Controller
         //return $pdf->stream();
         return $pdf->download('reportes-del-mes');
     }
+    public function excel()
+    {
+        return Excel::download(new TaskExport, 'reporte.xlsx');
+    }
+    
 
     public function delete($id)
     {

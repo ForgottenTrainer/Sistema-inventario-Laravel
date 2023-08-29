@@ -58,7 +58,7 @@
     </style>
     <main class="container">
         <h1 class="text-end mb-5 mt-5" style="text-align:right;">
-            JPS reporte de productos
+            JPS Reporte de Productos
         </h1>
         <table class="table table-striped">
             <thead>

@@ -3,13 +3,17 @@
     <div class="px-6 py-4 flex">
         <x-text-input id="buscado" type="text" wire:model="search" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Buscar productos, proveedores del producto, el area del producto"/>
     </div>
-    <div class="mb-5">
+    <div class="mb-5 flex">
         <a href="{{ route('producto.pdf') }}" class="bg-blue-600 text-white  p-2 rounded-sm cursor-pointer font-semibold hover:bg-blue-700 hover:transition-all hover:shadow-md">
             PDF
         </a>
-        <a href="#" class="bg-green-600 text-white ml-8 p-2 rounded-sm cursor-pointer font-semibold hover:bg-green-700 hover:transition-all hover:shadow-md">
-            Excel
-        </a>
+        <form action="{{ route('producto.excel') }}" enctype="multipart/form-data">
+            @csrf
+            <button class="bg-green-600 text-white ml-8 p-2 rounded-sm cursor-pointer font-semibold hover:bg-green-700 hover:transition-all hover:shadow-md">
+                Excel
+            </button>
+        </form>
+
     </div>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -54,7 +58,7 @@
                             {{ $producto->proveedor }}
                         </td>
                         <td class="px-6 py-4 flex">
-                            <a href="{{ route('producto.show', $producto->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-5">Editar</a>
+                            <a href="{{ route('producto.show', $producto->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-5">Editar</button>
                             <button data-producto-id="{{ $producto->id }}" class="font-medium text-red-600 dark:text-red-500 hover:underline cursor-pointer delete-producto-btn">Eliminar</button>
                         </td>
                     </tr>                   

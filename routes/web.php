@@ -44,8 +44,10 @@ Route::middleware('auth')->group(function () {
     Route::put('/editar-area/{id}', [AreasController::class, 'update'])->name('area.update');
     //Route::delete('/delete-area/{id}', [AreasController::class, 'delete'])->name('area.delete');
 
-    //URL para el PDF
+    //URL para el PDF & excel
     Route::get('/productos/pdf', [TaskController::class, 'pdf'])->name('producto.pdf');
+    Route::get('/productos/excel', [TaskController::class, 'excel'])->name('producto.excel');
+
 });
 
 require __DIR__.'/auth.php';
