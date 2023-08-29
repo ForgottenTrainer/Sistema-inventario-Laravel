@@ -16,6 +16,7 @@ class MakeAreas extends Component
     public $direccion= '';
     public $telefono = '';
     public $correo= '';
+    public $search = '';
     public $listeners = ['delete'];
 
     public function updateArea($id)
@@ -38,6 +39,15 @@ class MakeAreas extends Component
     {
         $this->areas = Area::orderBy('id', 'desc')->get();
         $this->area = new Area();
+    }
+
+    public function updated()
+    {
+        $this->areas = Area::where('nombre', 'like', '%'.$this->search.'%')
+            ->orWhere('id', 'like', "%$this->search%")
+            ->orWhere('tproducto', 'like', "%$this->search%")
+            ->get();
+        
     }
 
     public function delete(Area $area)

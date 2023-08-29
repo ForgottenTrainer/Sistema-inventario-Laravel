@@ -5,5 +5,5 @@ Tablero de productos
 @endsection
 
 @section('contenido')
-    <livewire:producto />
+    <livewire:producto-tablero />
 @endsection

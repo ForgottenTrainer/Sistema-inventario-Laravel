@@ -44,6 +44,7 @@ class AreasController extends Controller
         return redirect()->route('area.edit', $id);
 
     }
+    
 
     public function delete($id)
     {
