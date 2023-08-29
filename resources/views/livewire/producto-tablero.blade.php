@@ -1,6 +1,15 @@
 <div>
-    <div class="px-6 py-4 relative">
+
+    <div class="px-6 py-4 flex">
         <x-text-input id="buscado" type="text" wire:model="search" class="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Buscar productos, proveedores del producto, el area del producto"/>
+    </div>
+    <div class="mb-5">
+        <a href="{{ route('producto.pdf') }}" class="bg-blue-600 text-white  p-2 rounded-sm cursor-pointer font-semibold hover:bg-blue-700 hover:transition-all hover:shadow-md">
+            PDF
+        </a>
+        <a href="#" class="bg-green-600 text-white ml-8 p-2 rounded-sm cursor-pointer font-semibold hover:bg-green-700 hover:transition-all hover:shadow-md">
+            Excel
+        </a>
     </div>
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
         <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">

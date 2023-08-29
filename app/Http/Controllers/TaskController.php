@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Task;
 use App\Models\Areas;
+use PDF;
+use Illuminate\Support\Facades\App;
 
 class TaskController extends Controller
 {
@@ -61,6 +63,17 @@ class TaskController extends Controller
         $producto->save();
 
         return view('admin.producto.index');
+    }
+
+    public function pdf()
+    {
+        $productos = Task::all();
+
+        //Ignoren el error en el PDF si funciona
+        $pdf = PDF::loadView('admin.producto.pdf',['productos' => $productos]);
+
+        //return $pdf->stream();
+        return $pdf->download('reportes-del-mes');
     }
 
     public function delete($id)

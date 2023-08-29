@@ -51,7 +51,7 @@
             console.log('Event "good" received.');
             Swal.fire({    
                 icon: 'success',
-                title: 'El area a sido creada',
+                title: 'El area ha sido creada',
                 showConfirmButton: false,
                 timer: 1500
             })
