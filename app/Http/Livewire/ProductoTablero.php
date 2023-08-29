@@ -29,6 +29,13 @@ class ProductoTablero extends Component
         
     }
 
+    public function delete(TaskModel $productos)
+    {
+        $productos->delete();
+        
+        $this->mount();
+    }
+
     public function render()
     {
 

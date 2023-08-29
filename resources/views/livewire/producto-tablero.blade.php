@@ -46,12 +46,7 @@
                         </td>
                         <td class="px-6 py-4 flex">
                             <a href="{{ route('producto.show', $producto->id) }}" class="font-medium text-blue-600 dark:text-blue-500 hover:underline mr-5">Editar</a>
-                            <form action="{{ route('producto.delete', $producto->id) }}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button type="submit" class="font-medium text-red-600 dark:text-red-500 hover:underline">Eliminar</button>
-                            </form>
-                            
+                            <button data-producto-id="{{ $producto->id }}" class="font-medium text-red-600 dark:text-red-500 hover:underline cursor-pointer delete-producto-btn">Eliminar</button>
                         </td>
                     </tr>                   
                 @empty
@@ -63,3 +58,49 @@
         </table>
     </div>
 </div>
+@push('js')
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function(e) {
+            e.preventDefault()
+            const deleteButtons = document.querySelectorAll('.delete-producto-btn');
+
+            deleteButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const productoId = button.getAttribute('data-producto-id');
+
+                    Swal.fire({
+                        title: 'Estas a punto de eliminar este producto',
+                        text: 'Esta acción es irreversible',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Eliminar'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            axios.delete(`/eliminar-producto/${productoId}`)
+                                .then(response => {
+                                    Swal.fire(
+                                        'Producto eliminado',
+                                        'El producto ha sido eliminado correctamente',
+                                        'success'
+                                    );
+                                    location.reload(); // Recargar la página para reflejar los cambios
+                                })
+                                .catch(error => {
+                                    console.error(error);
+                                    Swal.fire(
+                                        'Error',
+                                        'Ha ocurrido un error al intentar eliminar el producto',
+                                        'error'
+                                    );
+                                });
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+@endpush
