@@ -32,25 +32,25 @@ Editar producto
     <div class="flex items-start mb-6">
         <label for="area" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Area del producto</label>
         <select id="area" name="area" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-            <option selected>Seleccione un area</option>
-            <option value="tecnologicos">Tecnológicos</option>
-            <option value="industriales">Industriales</option>
-            <option value="alimentacion">Alimentación</option>
-            <option value="textiles">Textiles</option>
-            <option value="salud">Salud</option>
-            <option value="automotriz">Automotriz</option>
-            <option value="construccion">Construcción</option>
-            <option value="electrodomesticos">Electrodomésticos</option>
-            <option value="entretenimiento">Entretenimiento</option>
-            <option value="moda">Moda</option>
-            <option value="muebles">Muebles</option>
-            <option value="deportes">Deportes</option>
-            <option value="juegos">Juegos</option>
-            <option value="jardineria">Jardinería</option>
-            <option value="libros">Libros</option>
-            <option value="musica">Música</option>
-            <option value="juguetes">Juguetes</option>
-        </select>
+          <option value="" disabled>Seleccione un area</option>
+          <option value="tecnologicos" {{ $producto->area === 'tecnologicos' ? 'selected' : '' }}>Tecnológicos</option>
+          <option value="industriales" {{ $producto->area === 'industriales' ? 'selected' : '' }}>Industriales</option>
+          <option value="alimentacion" {{ $producto->area === 'alimentacion' ? 'selected' : '' }}>Alimentación</option>
+          <option value="textiles" {{ $producto->area === 'textiles' ? 'selected' : '' }}>Textiles</option>
+          <option value="salud" {{ $producto->area === 'salud' ? 'selected' : '' }}>Salud</option>
+          <option value="automotriz" {{ $producto->area === 'automotriz' ? 'selected' : '' }}>Automotriz</option>
+          <option value="construccion" {{ $producto->area === 'construccion' ? 'selected' : '' }}>Construcción</option>
+          <option value="electrodomesticos" {{ $producto->area === 'electrodomesticos' ? 'selected' : '' }}>Electrodomésticos</option>
+          <option value="entretenimiento" {{ $producto->area === 'entretenimiento' ? 'selected' : '' }}>Entretenimiento</option>
+          <option value="moda" {{ $producto->area === 'moda' ? 'selected' : '' }}>Moda</option>
+          <option value="muebles" {{ $producto->area === 'muebles' ? 'selected' : '' }}>Muebles</option>
+          <option value="deportes" {{ $producto->area === 'deportes' ? 'selected' : '' }}>Deportes</option>
+          <option value="juegos" {{ $producto->area === 'juegos' ? 'selected' : '' }}>Juegos</option>
+          <option value="jardineria" {{ $producto->area === 'jardineria' ? 'selected' : '' }}>Jardinería</option>
+          <option value="libros" {{ $producto->area === 'libros' ? 'selected' : '' }}>Libros</option>
+          <option value="musica" {{ $producto->area === 'musica' ? 'selected' : '' }}>Música</option>
+          <option value="juguetes" {{ $producto->area === 'juguetes' ? 'selected' : '' }}>Juguetes</option>
+      </select>
         @error('area')
         <div class="bg-red-500 mt-2 p-2 rounded-sm font-bold text-white uppercase">
           <p class="">{{ $message }}</p>
@@ -60,9 +60,11 @@ Editar producto
     <div class="flex items-start mb-6">
       <label for="proveedor" class="pr-5 block mb-2 text-sm font-medium text-gray-900 dark:text-white">Proveedor</label>
       <select id="proveedor" name="proveedor" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-          <option selected>Seleccione un proveedor</option>
+          
           @foreach ($areas as $area )
-            <option value="{{ $area->nombre }}">{{ $area->nombre }}</option>
+          <option value="{{ $area->nombre }}" {{ $producto->proveedor === $area->nombre ? 'selected' : '' }}>
+            {{ $area->nombre }}
+          </option>          
           @endforeach
       </select>
       @error('proveedor')

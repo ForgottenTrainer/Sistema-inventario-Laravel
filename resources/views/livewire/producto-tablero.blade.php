@@ -62,8 +62,7 @@
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', function(e) {
-            e.preventDefault()
+        document.addEventListener('DOMContentLoaded', function() {
             const deleteButtons = document.querySelectorAll('.delete-producto-btn');
 
             deleteButtons.forEach(button => {
@@ -87,7 +86,10 @@
                                         'El producto ha sido eliminado correctamente',
                                         'success'
                                     );
-                                    location.reload(); // Recargar la página para reflejar los cambios
+                                    setTimeout(() => {
+                                        location.reload(); 
+                                    }, 2000);
+                                    
                                 })
                                 .catch(error => {
                                     console.error(error);
