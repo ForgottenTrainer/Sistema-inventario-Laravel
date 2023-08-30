@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Exports\AreasExport;
 use App\Models\Areas;
+use PDF;
+use Excel;
 
 class AreasController extends Controller
 {
@@ -44,7 +47,20 @@ class AreasController extends Controller
         return redirect()->route('area.edit', $id);
 
     }
-    
+    public function pdf()
+    {
+        $productos = Areas::all();
+
+        //Ignoren el error en el PDF si funciona
+        $pdf = PDF::loadView('admin.area.pdf',['productos' => $productos]);
+
+        //return $pdf->stream();
+        return $pdf->download('reportes-del-mes');
+    }
+    public function excel()
+    {
+        return Excel::download(new AreasExport, 'reporte-areas.xlsx');
+    }
 
     public function delete($id)
     {

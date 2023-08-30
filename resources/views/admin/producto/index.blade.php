@@ -1,7 +1,7 @@
 @extends('admin.layout')
 
 @section('titulo')
-Tablero de productos
+Tablero de Productos
 @endsection
 
 @section('contenido')

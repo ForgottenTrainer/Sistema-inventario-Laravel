@@ -47,6 +47,8 @@ Route::middleware('auth')->group(function () {
     //URL para el PDF & excel
     Route::get('/productos/pdf', [TaskController::class, 'pdf'])->name('producto.pdf');
     Route::get('/productos/excel', [TaskController::class, 'excel'])->name('producto.excel');
+    Route::get('/areas/pdf', [AreasController::class, 'pdf'])->name('areas.pdf');
+    Route::get('/areas/excel', [AreasController::class, 'excel'])->name('areas.excel');
 
 });
 
