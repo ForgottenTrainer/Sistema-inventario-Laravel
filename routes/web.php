@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AlquilerController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\TaskController;
@@ -46,6 +47,14 @@ Route::middleware('auth')->group(function () {
     Route::get('/editar-area/{id}', [AreasController::class, 'edit'])->name('area.edit');
     Route::put('/editar-area/{id}', [AreasController::class, 'update'])->name('area.update');
     //Route::delete('/delete-area/{id}', [AreasController::class, 'delete'])->name('area.delete');
+
+    //Trabajador
+
+    //Sección prestamos
+    Route::get('alquiler', [AlquilerController::class, 'index'])->name('alquiler.index');
+    Route::get('alquiler-formulario', [AlquilerController::class, 'show'])->name('alquiler.show');
+
+    //Sección contratos
 
     //URL para el PDF & excel
     Route::get('/productos/pdf', [TaskController::class, 'pdf'])->name('producto.pdf');
