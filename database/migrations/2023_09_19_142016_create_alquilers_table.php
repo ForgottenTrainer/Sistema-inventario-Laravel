@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('empleado');
             $table->string('herramienta');
             $table->string('estatus');
+            $table->cantidad('double');
             $table->date('inicio');
             $table->date('fin');
             $table->timestamps();

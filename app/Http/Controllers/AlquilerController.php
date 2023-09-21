@@ -6,6 +6,8 @@ use App\Models\Alquiler;
 use App\Models\Task;
 use Illuminate\Http\Request;
 use PDF;
+use Illuminate\Support\Carbon;
+
 
 class AlquilerController extends Controller
 {
@@ -72,6 +74,24 @@ class AlquilerController extends Controller
     
         return redirect()->route('alquiler.index');
     }
+
+    public function activar($id, Request $request)
+    {
+        $alquiler = Alquiler::find($id);
+    
+        if ($alquiler) {
+            // Verificar si la fecha actual es posterior a la fecha de finalización
+            if (Carbon::now()->greaterThan($alquiler->fin)) {
+                return redirect()->back()->with('error', 'No puedes activar el alquiler después de la fecha de finalización.');
+            }
+    
+            // Si la fecha actual no es superior a la fecha fin, entonces actualiza el estado
+            $alquiler->update(['estatus' => $request->estado]);
+        }
+    
+        return redirect()->route('alquiler.index');
+    }
+    
 
     public function pdf($id)
     {

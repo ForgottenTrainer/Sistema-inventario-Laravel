@@ -56,6 +56,7 @@ Route::middleware('auth')->group(function () {
     Route::get('alquiler/ver-mas/{id}', [AlquilerController::class, 'edit'])->name('alquiler.edit');
     Route::post('alquiler/ver-mas/{id}', [AlquilerController::class, 'update'])->name('alquiler.update');
     Route::post('alquiler/cancel/{id}', [AlquilerController::class, 'cancel'])->name('alquiler.cancel');
+    Route::post('alquiler/activar/{id}', [AlquilerController::class, 'activar'])->name('alquiler.active');
     Route::get('alquiler/editar/{id}', [AlquilerController::class, 'edicion'])->name('edit.alquiler');
     Route::put('alquiler/editar-alquiler/{id}', [AlquilerController::class, 'actualizar'])->name('update.alquiler');
     //Sección contratos
