@@ -11,6 +11,7 @@ class PrestamosTabla extends Component
     public $alquilers;
     public $alquiler;
     public $fin;
+    public $search = '';
 
     public function updatedFin()
     {
@@ -20,6 +21,15 @@ class PrestamosTabla extends Component
             $this->alquiler->update(['estatus' => 'Retardo']);
 
         }
+    }
+
+    public function updatedSearch()
+    {
+        $this->alquilers = Alquiler::where('empleado', 'like', '%' . $this->search . '%')
+            ->orWhere('id', 'like', "%$this->search%")
+            ->orWhere('herramienta', 'like', "%$this->search%")
+            ->orWhere('estatus', 'like', "%$this->search%")
+            ->get();
     }
 
     public function mount()
