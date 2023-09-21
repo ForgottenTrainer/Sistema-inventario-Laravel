@@ -1,10 +1,10 @@
 {
     "roboto": {
-        "100": "\/Users\/forgotten\/Desktop\/workspace\/InventorySystem\/storage\/fonts\/roboto_100_1c4e32da7e6c8539dd3a51af38f413be",
-        "300": "\/Users\/forgotten\/Desktop\/workspace\/InventorySystem\/storage\/fonts\/roboto_300_32acfcb296f555e063ebba2be7db9e2f",
-        "normal": "\/Users\/forgotten\/Desktop\/workspace\/InventorySystem\/storage\/fonts\/roboto_normal_7bc701b343c10631f60048716b96e4f7",
-        "500": "\/Users\/forgotten\/Desktop\/workspace\/InventorySystem\/storage\/fonts\/roboto_500_5774d6fb05eba3d096525f821dbe4137",
-        "bold": "\/Users\/forgotten\/Desktop\/workspace\/InventorySystem\/storage\/fonts\/roboto_bold_8db5cb5d0586c1e891426d13097b1d04",
-        "900": "roboto_900_7bf41cacaff90e7097ddd49fb9296601"
+        "100": "\/Users\/forgotten\/Desktop\/workspace\/Sistema-inventario-Laravel\/storage\/fonts\/roboto_100_1c4e32da7e6c8539dd3a51af38f413be",
+        "300": "\/Users\/forgotten\/Desktop\/workspace\/Sistema-inventario-Laravel\/storage\/fonts\/roboto_300_32acfcb296f555e063ebba2be7db9e2f",
+        "normal": "\/Users\/forgotten\/Desktop\/workspace\/Sistema-inventario-Laravel\/storage\/fonts\/roboto_normal_7bc701b343c10631f60048716b96e4f7",
+        "500": "\/Users\/forgotten\/Desktop\/workspace\/Sistema-inventario-Laravel\/storage\/fonts\/roboto_500_5774d6fb05eba3d096525f821dbe4137",
+        "bold": "roboto_bold_8db5cb5d0586c1e891426d13097b1d04",
+        "900": "\/Users\/forgotten\/Desktop\/workspace\/Sistema-inventario-Laravel\/storage\/fonts\/roboto_900_7bf41cacaff90e7097ddd49fb9296601"
     }
 }

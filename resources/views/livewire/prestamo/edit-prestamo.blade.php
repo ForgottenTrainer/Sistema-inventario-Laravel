@@ -1,5 +1,5 @@
 <div>
-    <form wire:submit.prevent="submit">
+    <form wire:submit.prevent="update">
         @error('empleado') <span class="text-red-500">{{ $message }}</span> @enderror
         @error('herramienta') <span class="text-red-500">{{ $message }}</span> @enderror
         @error('inicio') <span class="text-red-500">{{ $message }}</span> @enderror

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Alquiler;
 use App\Models\Areas;
 use App\Models\Task;
 use App\Models\User;
@@ -15,11 +16,14 @@ class Dashboard extends Controller
         $productos = Task::all();
         $areas = Areas::all();
         $users = User::all();
+        $alquiler = Alquiler::where('estatus', 'Activo')
+        ->orWhere('estatus', 'Retardo');
 
         return view('admin.tablero', compact(
             'productos',
             'areas',
-            'users'
+            'users',
+            'alquiler'
         ));
     }
 }

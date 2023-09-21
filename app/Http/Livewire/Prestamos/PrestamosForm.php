@@ -1,29 +1,50 @@
 <?php
 
 namespace App\Http\Livewire\Prestamos;
-
 use Livewire\Component;
+use App\Models\Task;
+use App\Models\Alquiler;
+use Illuminate\Support\Carbon;
 
 class PrestamosForm extends Component
 {
-    public $count = 0;
-
-    public function bajar()
+    public $empleado;
+    public $herramienta;
+    public $estatus;
+    public $inicio;
+    public $alquiler;
+    public $fin;
+    public $selectedTasks = [];
+    
+    public function submit()
     {
-        if($this->count > 0) {
-            $this->count--;
-        }
-        
-    }
+        $this->validate([
+            'empleado' => 'required',
+            'herramienta' => 'required',
+            'inicio' => 'required|date',
+            'fin' => 'required|date|after:inicio',
+        ]);
+    
+        Alquiler::create([
+            'empleado' => $this->empleado,
+            'herramienta' => $this->herramienta,
+            'estatus' => 'Activo', // Puedes cambiar este valor según tus necesidades
+            'inicio' => $this->inicio,
+            'fin' => $this->fin,
+        ]);
+    
+        // Limpiar los campos después de guardar
+        $this->empleado = '';
+        $this->herramienta = '';
+        $this->inicio = '';
+        $this->fin = '';
 
-
-    public function incrementar()
-    {
-        $this->count++;
+        return redirect()->route("alquiler.index");
     }
 
     public function render()
     {
-        return view('livewire..prestamos.prestamos-form');
+        $productos = Task::whereNotIn('id', $this->selectedTasks)->get();
+        return view('livewire..prestamos.prestamos-form', compact('productos'));
     }
 }

@@ -16,4 +16,9 @@ class Task extends Model
         'estado',
         'proveedor'
     ];
+    public function alquilers()
+    {
+        return $this->hasMany(Alquiler::class, 'herramienta', 'nombre');
+    }
+
 }

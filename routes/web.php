@@ -53,7 +53,11 @@ Route::middleware('auth')->group(function () {
     //Sección prestamos
     Route::get('alquiler', [AlquilerController::class, 'index'])->name('alquiler.index');
     Route::get('alquiler-formulario', [AlquilerController::class, 'show'])->name('alquiler.show');
-
+    Route::get('alquiler/ver-mas/{id}', [AlquilerController::class, 'edit'])->name('alquiler.edit');
+    Route::post('alquiler/ver-mas/{id}', [AlquilerController::class, 'update'])->name('alquiler.update');
+    Route::post('alquiler/cancel/{id}', [AlquilerController::class, 'cancel'])->name('alquiler.cancel');
+    Route::get('alquiler/editar/{id}', [AlquilerController::class, 'edicion'])->name('edit.alquiler');
+    Route::put('alquiler/editar-alquiler/{id}', [AlquilerController::class, 'actualizar'])->name('update.alquiler');
     //Sección contratos
 
     //URL para el PDF & excel
@@ -61,6 +65,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/productos/excel', [TaskController::class, 'excel'])->name('producto.excel');
     Route::get('/areas/pdf', [AreasController::class, 'pdf'])->name('areas.pdf');
     Route::get('/areas/excel', [AreasController::class, 'excel'])->name('areas.excel');
+    Route::get('/alquiler/pdf/{id}', [AlquilerController::class, 'pdf'])->name('alquiler.pdf');
 
 });
 
