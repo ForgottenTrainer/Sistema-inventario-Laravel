@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        <link rel="shortcut icon" href="{{ asset('images/jps.png') }}" type="image/x-icon">
         <title>Sistema de Inventario JPS</title>
         @livewireStyles
     </head>
