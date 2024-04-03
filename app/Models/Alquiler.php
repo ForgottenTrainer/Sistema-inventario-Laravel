@@ -13,6 +13,7 @@ class Alquiler extends Model
         'empleado', 
         'herramienta', 
         'estatus' ,
+        'cantidad',
         'inicio' ,
         'fin' ,
     ];

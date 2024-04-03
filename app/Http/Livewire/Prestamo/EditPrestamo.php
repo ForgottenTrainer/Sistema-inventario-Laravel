@@ -12,6 +12,7 @@ class EditPrestamo extends Component
     public $herramienta;
     public $inicio;
     public $fin;
+    public $cantidad;
     public $selectedTasks = [];
     public $alquilerId;
     public $alquiler;
@@ -23,6 +24,7 @@ class EditPrestamo extends Component
 
         $this->empleado = $this->alquiler->empleado;
         $this->herramienta = $this->alquiler->herramienta;
+        $this->cantidad = $this->alquiler->cantidad;
         $this->inicio = $this->alquiler->inicio;
         $this->fin = $this->alquiler->fin;
     }
@@ -33,6 +35,7 @@ class EditPrestamo extends Component
             'empleado' => 'required',
             'herramienta' => 'required',
             'inicio' => 'required|date',
+            'cantidad' => 'required|numeric',
             'fin' => 'required|date|after:inicio',
         ]);
 
@@ -41,13 +44,14 @@ class EditPrestamo extends Component
         $alquiler->update([
             'empleado' => $this->empleado,
             'herramienta' => $this->herramienta,
+            'cantidad' => $this->cantidad,
             'inicio' => $this->inicio,
             'fin' => $this->fin,
         ]);
 
         session()->flash('message', 'Producto actualizado correctamente.');
 
-        return redirect()->to('/ruta/donde/quieres/redirigir');
+        return redirect()->back();
     }
     
 

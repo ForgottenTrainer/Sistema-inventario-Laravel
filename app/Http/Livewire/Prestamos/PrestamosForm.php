@@ -12,6 +12,7 @@ class PrestamosForm extends Component
     public $herramienta;
     public $estatus;
     public $inicio;
+    public $cantidad;
     public $alquiler;
     public $fin;
     public $selectedTasks = [];
@@ -22,14 +23,16 @@ class PrestamosForm extends Component
             'empleado' => 'required',
             'herramienta' => 'required',
             'inicio' => 'required|date',
+            'cantidad' => 'required|numeric',
             'fin' => 'required|date|after:inicio',
         ]);
     
         Alquiler::create([
             'empleado' => $this->empleado,
             'herramienta' => $this->herramienta,
-            'estatus' => 'Activo', // Puedes cambiar este valor según tus necesidades
+            'estatus' => 'Activo', 
             'inicio' => $this->inicio,
+            'cantidad' => $this->cantidad,
             'fin' => $this->fin,
         ]);
     
@@ -37,6 +40,7 @@ class PrestamosForm extends Component
         $this->empleado = '';
         $this->herramienta = '';
         $this->inicio = '';
+        $this->cantidad = '';
         $this->fin = '';
 
         return redirect()->route("alquiler.index");
