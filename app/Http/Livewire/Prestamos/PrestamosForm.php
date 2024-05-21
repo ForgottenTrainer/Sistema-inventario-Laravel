@@ -4,7 +4,6 @@ namespace App\Http\Livewire\Prestamos;
 use Livewire\Component;
 use App\Models\Task;
 use App\Models\Alquiler;
-use Illuminate\Support\Carbon;
 
 class PrestamosForm extends Component
 {

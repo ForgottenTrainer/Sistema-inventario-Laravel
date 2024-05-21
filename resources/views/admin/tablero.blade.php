@@ -1,56 +1,158 @@
 @extends('admin.layout')
 
 @section('titulo')
-Dashboard
+    Dashboard
 @endsection
 
 @section('contenido')
+    <div class="flex flex-wrap -mx-3">
+        <div class="w-full max-w-full px-3 sm:w-1/2 sm:flex-none xl:w-1/4">
+            <div class="relative flex flex-col min-w-0 break-words bg-gray-800 shadow-xl rounded-2xl bg-clip-border">
+                <div class="flex-auto p-4">
+                    <div class="flex flex-row -mx-3">
+                        <div class="flex-none w-2/3 max-w-full px-3">
+                            <div>
+                                <p class="mb-0 font-sans text-white font-semibold leading-normal text-sm">Areas</p>
+                                <h5 class="mb-0 font-bold text-white">
+                                    {{ $areas->count() }}
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="px-3 text-right basis-1/3">
+                            <div
+                                class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-red-700 to-pink-500">
+                                <i class="fa-solid fa-user-plus leading-none ext-lg relative top-3.5 text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full max-w-full px-3 sm:w-1/2 sm:flex-none xl:w-1/4">
+            <div class="relative flex flex-col min-w-0 break-words bg-gray-800 shadow-xl rounded-2xl bg-clip-border">
+                <div class="flex-auto p-4">
+                    <div class="flex flex-row -mx-3">
+                        <div class="flex-none w-2/3 max-w-full px-3">
+                            <div>
+                                <p class="mb-0 font-sans text-white font-semibold leading-normal text-sm">Productos</p>
+                                <h5 class="mb-0 font-bold text-white">
+                                    {{ $productos->count() }}
+
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="px-3 text-right basis-1/3">
+                            <div
+                                class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-green-700 to-cyan-500">
+                                <i class="fa-solid fa-box leading-none text-lg relative top-3.5 text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full max-w-full px-3 sm:w-1/2 sm:flex-none xl:w-1/4">
+            <div class="relative flex flex-col min-w-0 break-words bg-gray-800 shadow-xl rounded-2xl bg-clip-border">
+                <div class="flex-auto p-4">
+                    <div class="flex flex-row -mx-3">
+                        <div class="flex-none w-2/3 max-w-full px-3">
+                            <div>
+                                <p class="mb-0 font-sans text-white font-semibold leading-normal text-sm">Usuarios</p>
+                                <h5 class="mb-0 font-bold text-white">
+                                    {{ $users->count() }}
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="px-3 text-right basis-1/3">
+                            <div
+                                class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-gray-700 to-gray-900">
+                                <i class="ni leading-none ni-cart text-lg relative top-3.5 text-white"></i>
+                                <i class="fa-solid fa-user-tie leading-non text-lg relative top-3.5 text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-full max-w-full px-3 sm:w-1/2 sm:flex-none xl:w-1/4">
+            <div class="relative flex flex-col min-w-0 break-words bg-gray-800 shadow-xl rounded-2xl bg-clip-border">
+                <div class="flex-auto p-4">
+                    <div class="flex flex-row -mx-3">
+                        <div class="flex-none w-2/3 max-w-full px-3">
+                            <div>
+                                <p class="mb-0 font-sans text-white font-semibold leading-normal text-sm">Alquiler</p>
+                                <h5 class="mb-0 font-bold text-white">
+                                    {{ $alquiler->count() }}
+                                </h5>
+                            </div>
+                        </div>
+                        <div class="px-3 text-right basis-1/3">
+                            <div
+                                class="inline-block w-12 h-12 text-center rounded-lg bg-gradient-to-tl from-purple-700 to-indigo-500">
+                                <i class="fa-solid fa-clipboard leading-none text-lg relative top-3.5 text-white"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======= Section de recomendaciones y atajos ============== -->
+
+    <div class="flex flex-wrap mt-6 -mx-3">
+        <div class="w-full px-3 mb-6 lg:mb-0 lg:w-7/12 lg:flex-none">
+            <div class="relative flex flex-col min-w-0 break-words bg-gray-800 text-white shadow-soft-xl rounded-2xl bg-clip-border">
+                <div class="flex-auto p-4">
+                    <div class="flex flex-wrap -mx-3">
+                        <div class="max-w-full px-3 lg:w-1/2 lg:flex-none">
+                            <div class="flex flex-col h-full">
+                                <p class="pt-2 mb-1 font-semibold">Crear nuevos usuarios al sistema</p>
+                                <h5 class="font-bold mt-5">Registra nuevos usuarios para que ingresen al sistema</h5>
+
+                                <a class="mt-auto mb-0 font-semibold leading-normal text-sm group text-slate-300"
+                                    href="javascript:;">
+                                    Registrar
+                                    <i class="fas fa-arrow-right ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200"
+                                        aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="max-w-full px-3 mt-12 ml-auto text-center lg:mt-0 lg:w-5/12 lg:flex-none">
+                            <div class="h-full bg-gradient-to-tl from-purple-700 to-pink-500 rounded-xl">
+                                <div class="relative flex items-center justify-center h-full">
+                                    <img class="relative z-20 w-full pt-6"
+                                    src="{{ asset('images/avatar.svg') }}" alt="avatar">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="w-full max-w-full px-3 lg:w-5/12 lg:flex-none">
+            <div
+                class="border-black/12.5 shadow-soft-xl relative flex h-full min-w-0 flex-col break-words rounded-2xl border-0 border-solid bg-gray-800 bg-clip-border p-4">
+                <div class="relative h-full overflow-hidden bg-cover rounded-xl"
+                    style="background-image: url('https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2940&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')">
+                    <span
+                        class="absolute top-0 left-0 w-full h-full bg-center bg-cover bg-gradient-to-tl from-gray-900 to-slate-800 opacity-80"></span>
+                    <div class="relative z-10 flex flex-col flex-auto h-full p-4">
+                        <h5 class="pt-2 mb-6 font-bold text-white">¿Problemas con el sistema?</h5>
+                        <p class="text-white">Envianos un mensaje y nosotros te ayudaremos a solucionarlo</p>
+                        <a class="mt-auto mb-0 font-semibold leading-normal text-white group text-sm" href="javascript:;">
+                            Enviar mensaje.
+                            <i class="fas fa-arrow-right ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200"
+                                aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     
-<div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-    <div>
-        <a href="{{ route('areas.index') }}" class="flex items-center bg-white border border-red-200 rounded-lg shadow-md hover:bg-red-100 dark:border-red-700 dark:bg-red-800 dark:hover:bg-red-700 text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=" w-48 h-48">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
-            </svg>
-            <div class="flex flex-col justify-between p-4 leading-normal">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Areas</h5>
-                <p class="mb-3 font-normal text-gray-200 dark:text-gray-200">Cantidad: {{ $areas->count() }} </p>
-            </div>
-        </a>
-    </div>
-    <div>
-        <a href="{{ route('inv.index') }}" class="flex items-center bg-white border border-green-200 rounded-lg shadow-md hover:bg-green-100 dark:border-green-700 dark:bg-green-800 dark:hover:bg-green-700 text-white">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=" w-48 h-48">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
-            </svg>
-              
-            <div class="flex flex-col justify-between p-4 leading-normal">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Productos</h5>
-                <p class="mb-3 font-normal text-gray-200 dark:text-gray-200">Total de productos: {{ $productos->count() }} </p>
-            </div>
-        </a>
-    </div>
-    <div>
-        <a href="{{ route('dashboard') }}" class="flex text-white items-center bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class=" w-48 h-48 ">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
-            </svg>
-            <div class="flex flex-col justify-between p-4 leading-normal">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Usuarios en el sistema</h5>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">Cantidad: {{ $users->count() }} </p>
-            </div>
-        </a>
-    </div>
-    <div>
-        <a href="{{ route('alquiler.index') }}" class="flex text-white items-center bg-white border border-gray-200 rounded-lg shadow-md hover:bg-gray-100 dark:border-amber-700 dark:bg-amber-800 dark:hover:bg-amber-700">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-48 h-48">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
-            </svg> 
-            <div class="flex flex-col justify-between p-4 leading-normal">
-                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Alquiler</h5>
-                <p class="mb-3 font-normal text-gray-700 dark:text-gray-200">Cantidad: {{ $alquiler->count() }} </p>
-            </div>
-        </a>
-    </div>
-</div>
 @endsection

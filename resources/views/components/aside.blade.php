@@ -15,8 +15,8 @@
             @auth
                {{ auth()->user()->name }}
             @endauth
-         </span> -->
-      </a>
+         </span> 
+      </a> -->
       <img src="{{ asset('images/logo.png') }}" class="w-50 h-50 rounded-md mb-4" alt="">
       <ul class="space-y-2 font-medium">
          <li>
